@@ -55,8 +55,6 @@ class QiniuAdapter extends AdapterAbstract
      */
     public function uploadFile(array $options = []): array
     {
-        $this->config = array_replace($this->config, $options);
-        
         try {
             $result = [];
             foreach ($this->files as $key => $file) {
