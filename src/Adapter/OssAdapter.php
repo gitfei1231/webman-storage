@@ -43,10 +43,7 @@ class OssAdapter extends AdapterAbstract
      */
     public function uploadFile(array $options = []): array
     {
-        $this->config = [
-            ...$this->config,
-            ...$options
-        ];
+        $this->config = array_replace($this->config, $options);
         
         try {
             $result = [];

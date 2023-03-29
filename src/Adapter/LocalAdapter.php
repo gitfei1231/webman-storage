@@ -20,10 +20,7 @@ class LocalAdapter extends AdapterAbstract
      */
     public function uploadFile(array $options = []): array
     {
-        $this->config = [
-            ...$this->config,
-            ...$options
-        ];
+        $this->config = array_replace($this->config, $options);
         
         $result = [];
         $basePath = $this->config['root'].$this->config['dirname'].DIRECTORY_SEPARATOR;

@@ -72,10 +72,7 @@ class Storage
             throw new StorageException('对应的adapter不存在');
         }
         static::$adapter = new $config[$storage]['adapter'](array_merge(
-            [
-                ...$config[$storage],
-                ...$options
-            ],
+            array_replace($config[$storage], $options),
             [
                 '_is_file_upload' => $_is_file_upload,
             ]
