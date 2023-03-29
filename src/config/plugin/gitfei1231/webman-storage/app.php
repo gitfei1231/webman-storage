@@ -29,7 +29,7 @@ return [
         // 阿里云对象存储
         'oss' => [
             'adapter' => \Tinywan\Storage\Adapter\OssAdapter::class,
-            'root' => DIRECTORY_SEPARATOR .  'storage' . DIRECTORY_SEPARATOR,
+            'root' => 'storage' . DIRECTORY_SEPARATOR,
             'accessKeyId' => 'xxxxxxxxxxxx',
             'accessKeySecret' => 'xxxxxxxxxxxx',
             'bucket' => 'resty-webman',
@@ -43,7 +43,7 @@ return [
         // 腾讯云对象存储
         'cos' => [
             'adapter' => \Tinywan\Storage\Adapter\CosAdapter::class,
-            'root' => DIRECTORY_SEPARATOR .  'storage' . DIRECTORY_SEPARATOR,
+            'root' => 'storage' . DIRECTORY_SEPARATOR,
             'secretId' => 'xxxxxxxxxxxxx',
             'secretKey' => 'xxxxxxxxxxxx',
             'bucket' => 'resty-webman-xxxxxxxxx',
@@ -56,7 +56,7 @@ return [
         // 七牛云对象存储
         'qiniu' => [
             'adapter' => \Tinywan\Storage\Adapter\QiniuAdapter::class,
-            'root' => DIRECTORY_SEPARATOR .  'storage' . DIRECTORY_SEPARATOR,
+            'root' => 'storage' . DIRECTORY_SEPARATOR,
             'accessKey' => 'xxxxxxxxxxxxx',
             'secretKey' => 'xxxxxxxxxxxxx',
             'bucket' => 'resty-webman',
