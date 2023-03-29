@@ -29,11 +29,12 @@ return [
         // 阿里云对象存储
         'oss' => [
             'adapter' => \Tinywan\Storage\Adapter\OssAdapter::class,
+            'root' => DIRECTORY_SEPARATOR .  'storage' . DIRECTORY_SEPARATOR,
             'accessKeyId' => 'xxxxxxxxxxxx',
             'accessKeySecret' => 'xxxxxxxxxxxx',
             'bucket' => 'resty-webman',
             'dirname' => function () {
-                return 'storage';
+                return date('Ymd');
             },
             'domain' => 'http://webman.oss.tinywan.com',
             'endpoint' => 'oss-cn-hangzhou.aliyuncs.com',
@@ -42,20 +43,26 @@ return [
         // 腾讯云对象存储
         'cos' => [
             'adapter' => \Tinywan\Storage\Adapter\CosAdapter::class,
+            'root' => DIRECTORY_SEPARATOR .  'storage' . DIRECTORY_SEPARATOR,
             'secretId' => 'xxxxxxxxxxxxx',
             'secretKey' => 'xxxxxxxxxxxx',
             'bucket' => 'resty-webman-xxxxxxxxx',
-            'dirname' => 'storage',
+            'dirname' => function () {
+                return date('Ymd');
+            },
             'domain' => 'http://webman.oss.tinywan.com',
             'region' => 'ap-shanghai',
         ],
         // 七牛云对象存储
         'qiniu' => [
             'adapter' => \Tinywan\Storage\Adapter\QiniuAdapter::class,
+            'root' => DIRECTORY_SEPARATOR .  'storage' . DIRECTORY_SEPARATOR,
             'accessKey' => 'xxxxxxxxxxxxx',
             'secretKey' => 'xxxxxxxxxxxxx',
             'bucket' => 'resty-webman',
-            'dirname' => 'storage',
+            'dirname' => function () {
+                return date('Ymd');
+            },
             'domain' => 'http://webman.oss.tinywan.com',
         ],
     ],

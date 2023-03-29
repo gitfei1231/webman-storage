@@ -60,7 +60,7 @@ class QiniuAdapter extends AdapterAbstract
             foreach ($this->files as $key => $file) {
                 $uniqueId = hash_file($this->algo, $file->getPathname());
                 $saveName = $uniqueId.'.'.$file->getUploadExtension();
-                $object = $this->config['dirname'].$this->dirSeparator.$saveName;
+                $object = $this->config['root'].$this->config['dirname'].$this->dirSeparator.$saveName;
                 $temp = [
                     'key' => $key,
                     'origin_name' => $file->getUploadName(),
@@ -100,7 +100,7 @@ class QiniuAdapter extends AdapterAbstract
         }
 
         $uniqueId = hash_file($this->algo, $file->getPathname());
-        $object = $this->config['dirname'].$this->dirSeparator.$uniqueId.'.'.$file->getExtension();
+        $object = $this->config['root'].$this->config['dirname'].$this->dirSeparator.$uniqueId.'.'.$file->getExtension();
 
         $result = [
             'origin_name' => $file->getRealPath(),
@@ -126,7 +126,7 @@ class QiniuAdapter extends AdapterAbstract
     {
         $base64 = explode(',', $base64);
         $uniqueId = date('YmdHis').uniqid();
-        $object = $this->config['dirname'].$this->dirSeparator.$uniqueId.'.'.$extension;
+        $object = $this->config['root'].$this->config['dirname'].$this->dirSeparator.$uniqueId.'.'.$extension;
 
         list($ret, $err) = $this->getInstance()->put($this->getUploadToken(), $object, base64_decode($base64[1]));
         if (!empty($err)) {
